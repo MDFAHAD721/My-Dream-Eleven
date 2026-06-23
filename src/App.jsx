@@ -1,9 +1,11 @@
 import navImg from "./assets/logo.png";
 import coinImg from "./assets/Currency.png";
+import AvailablePlayers from "../src/components/availablePlayers/availablePlayers.jsx";
 
 function App() {
   return (
     <>
+      {/* navbar design */}
       <div className="navbar w-11/12 mx-auto pt-5  ">
         <div className="flex-1">
           <a className="text-xl">
@@ -25,6 +27,8 @@ function App() {
           </button>
         </div>
       </div>
+
+      <AvailablePlayers></AvailablePlayers>
     </>
   );
 }
