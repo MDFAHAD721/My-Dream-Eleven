@@ -12,9 +12,20 @@ const DreamPlayers = async () => {
 const playersPromise = DreamPlayers();
 
 function App() {
-  const [availableBalance, setAvailableBalance] = useState(700000);
+  const [availableBalance, setAvailableBalance] = useState(70000000);
   // console.log("CurrentBalance =", availableBalance);
   const [toggle, setToggle] = useState(true);
+  const [purchasedPlayers, setPurchasedPlayers] = useState([]);
+  const handleRemovePlayer = (playerId) => {
+    setPurchasedPlayers(
+      purchasedPlayers.filter((player) => player.id !== playerId),
+      setAvailableBalance(
+        (prevBalance) =>
+          prevBalance +
+          purchasedPlayers.find((player) => player.id === playerId).price,
+      ),
+    );
+  };
   return (
     <>
       <Navbar availableBalance={availableBalance}></Navbar>
@@ -33,7 +44,7 @@ function App() {
             className={`flex justify-between items-center border border-gray-300 rounded-r-2xl px-4 py-2 border-l-0 ${!toggle ? "bg-yellow-300" : ""}`}
           >
             Selected
-            <span>(0)</span>
+            <span>({purchasedPlayers.length})</span>
           </button>
         </div>
       </div>
@@ -48,10 +59,15 @@ function App() {
             availableBalance={availableBalance}
             setAvailableBalance={setAvailableBalance}
             DreamPlayers={playersPromise}
+            purchasedPlayers={purchasedPlayers}
+            setPurchasedPlayers={setPurchasedPlayers}
           ></AvailablePlayers>
         </Suspense>
       ) : (
-        <SelectedPlayers></SelectedPlayers>
+        <SelectedPlayers
+          handleRemovePlayer={handleRemovePlayer}
+          purchasedPlayers={purchasedPlayers}
+        ></SelectedPlayers>
       )}
     </>
   );

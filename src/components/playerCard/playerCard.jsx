@@ -2,8 +2,14 @@ import { useState } from "react";
 import avatarImg from "../../assets/avatar.png";
 import flagImg from "../../assets/flag.png";
 
-const PlayerCard = ({ player, setAvailableBalance, availableBalance }) => {
-  const [isSelected, setIsSelected] = useState(false);
+const PlayerCard = ({
+  player,
+  setAvailableBalance,
+  availableBalance,
+  purchasedPlayers,
+  setPurchasedPlayers,
+}) => {
+  const isSelected = purchasedPlayers.some((p) => p.id === player.id);
   return (
     <div key={player.id} className="bg-base-100 card shadow-sm p-4">
       <figure>
@@ -50,8 +56,9 @@ const PlayerCard = ({ player, setAvailableBalance, availableBalance }) => {
                 alert("Insufficient balance to select this player.");
                 return;
               }
-              setIsSelected(true);
+
               setAvailableBalance((prevBalance) => prevBalance - player.price);
+              setPurchasedPlayers((prevPlayers) => [...prevPlayers, player]);
             }}
             className="btn btn-ghost border border-gray-300 rounded-xl"
           >

@@ -5,9 +5,11 @@ const AvailablePlayers = ({
   DreamPlayers,
   setAvailableBalance,
   availableBalance,
+  purchasedPlayers,
+  setPurchasedPlayers,
 }) => {
   const playersData = use(DreamPlayers);
-  console.log(playersData);
+  // console.log(playersData);
 
   return (
     <div className="w-11/12 mx-auto mt-10">
@@ -16,9 +18,12 @@ const AvailablePlayers = ({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {playersData.map((player) => (
           <PlayerCard
+            key={player.id}
             player={player}
             setAvailableBalance={setAvailableBalance}
             availableBalance={availableBalance}
+            purchasedPlayers={purchasedPlayers}
+            setPurchasedPlayers={setPurchasedPlayers}
           ></PlayerCard>
         ))}
       </div>
