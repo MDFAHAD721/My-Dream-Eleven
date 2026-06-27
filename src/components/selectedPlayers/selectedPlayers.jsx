@@ -3,7 +3,7 @@ const selectedPlayers = ({ purchasedPlayers, handleRemovePlayer }) => {
   return (
     <div className="w-11/12 mx-auto min-h-screen">
   
-
+    
       {purchasedPlayers.map((player) => (
         <div
           key={player.id}

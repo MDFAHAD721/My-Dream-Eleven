@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
 import Navbar from "../src/components/Navbar/navbar.jsx";
 import AvailablePlayers from "../src/components/availablePlayers/availablePlayers.jsx";
 import SelectedPlayers from "../src/components/selectedPlayers/selectedPlayers.jsx";
@@ -30,9 +31,11 @@ function App() {
       <Navbar availableBalance={availableBalance}></Navbar>
 
       <div className=" w-11/12 mx-auto flex justify-between items-center mb-10">
-        <h2 className="text-xl font-bold">{
-          toggle ? "Available Players" : `Selected Players (${purchasedPlayers.length}/16)`
-          }</h2>
+        <h2 className="text-xl font-bold">
+          {toggle
+            ? "Available Players"
+            : `Selected Players (${purchasedPlayers.length}/16)`}
+        </h2>
         <div className="flex">
           <button
             onClick={() => setToggle(true)}
@@ -70,6 +73,8 @@ function App() {
           purchasedPlayers={purchasedPlayers}
         ></SelectedPlayers>
       )}
+
+      <ToastContainer></ToastContainer>
     </>
   );
 }

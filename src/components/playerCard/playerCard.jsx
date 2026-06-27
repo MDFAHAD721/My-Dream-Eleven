@@ -1,6 +1,7 @@
 import { useState } from "react";
 import avatarImg from "../../assets/avatar.png";
 import flagImg from "../../assets/flag.png";
+import { toast } from "react-toastify";
 
 const PlayerCard = ({
   player,
@@ -53,7 +54,12 @@ const PlayerCard = ({
             disabled={isSelected}
             onClick={() => {
               if (player.price > availableBalance) {
-                alert("Insufficient balance to select this player.");
+                toast("Insufficient balance to select this player.");
+                return;
+              }
+
+              if (purchasedPlayers.length === 16) {
+                toast("16 players already selected !");
                 return;
               }
 
