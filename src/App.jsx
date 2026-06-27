@@ -33,7 +33,7 @@ function App() {
       <div className=" w-11/12 mx-auto flex justify-between items-center mb-10">
         <h2 className="text-xl font-bold">
           {toggle
-            ? "Available Players"
+            ? `Available Players`
             : `Selected Players (${purchasedPlayers.length}/16)`}
         </h2>
         <div className="flex">

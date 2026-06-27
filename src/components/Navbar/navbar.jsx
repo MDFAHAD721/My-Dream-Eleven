@@ -5,13 +5,13 @@ const Navbar = ({ availableBalance }) => {
   return (
     <div>
       {/* navbar design */}
-      <div className="navbar w-11/12 mx-auto pt-5  ">
-        <div className="flex-1">
+      <div className="navbar w-11/12 mx-auto pt-5  flex flex-col md:flex-row">
+        <div className="flex mb-7 md:mb-0">
           <a className="text-xl">
             <img src={navImg} alt="logo" className="w-15 mr-2" />
           </a>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex flex-col md:flex-row items-center gap-6">
           <div className="flex gap-6">
             <a href="">Home</a>
             <a href="">Fixture</a>

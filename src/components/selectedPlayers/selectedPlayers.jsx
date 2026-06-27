@@ -38,13 +38,13 @@ const selectedPlayers = ({
           </div>
         </div>
       ))}
-      {purchasedPlayers.length > 0 && purchasedPlayers.length < 16 && (
+      {purchasedPlayers.length < 16 && (
         <div>
           <button
             onClick={() => setToggle(true)}
             className="btn rounded-xl btn-outline mt-5"
           >
-            add more player
+            {purchasedPlayers.length === 0 ? `Add Player` : `Add More Player`}
           </button>
         </div>
       )}
