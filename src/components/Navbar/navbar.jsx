@@ -5,7 +5,7 @@ const Navbar = ({ availableBalance }) => {
   return (
     <div>
       {/* navbar design */}
-      <div className="navbar w-11/12 mx-auto pt-5  flex flex-col md:flex-row">
+      <div className="navbar w-11/12 mx-auto pt-5  flex flex-col md:flex-row justify-between">
         <div className="flex mb-7 md:mb-0">
           <a className="text-xl">
             <img src={navImg} alt="logo" className="w-15 mr-2" />
