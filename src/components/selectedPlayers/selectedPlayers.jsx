@@ -1,9 +1,11 @@
-const selectedPlayers = ({ purchasedPlayers, handleRemovePlayer }) => {
+const selectedPlayers = ({
+  purchasedPlayers,
+  handleRemovePlayer,
+  setToggle,
+}) => {
   console.log(purchasedPlayers);
   return (
     <div className="w-11/12 mx-auto min-h-screen">
-  
-    
       {purchasedPlayers.map((player) => (
         <div
           key={player.id}
@@ -36,6 +38,16 @@ const selectedPlayers = ({ purchasedPlayers, handleRemovePlayer }) => {
           </div>
         </div>
       ))}
+      {purchasedPlayers.length > 0 && purchasedPlayers.length < 16 && (
+        <div>
+          <button
+            onClick={() => setToggle(true)}
+            className="btn rounded-xl btn-outline mt-5"
+          >
+            add more player
+          </button>
+        </div>
+      )}
     </div>
   );
 };

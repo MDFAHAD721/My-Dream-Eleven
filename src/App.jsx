@@ -71,6 +71,7 @@ function App() {
         <SelectedPlayers
           handleRemovePlayer={handleRemovePlayer}
           purchasedPlayers={purchasedPlayers}
+          setToggle={setToggle}
         ></SelectedPlayers>
       )}
 
