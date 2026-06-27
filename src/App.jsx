@@ -13,7 +13,6 @@ const playersPromise = DreamPlayers();
 
 function App() {
   const [availableBalance, setAvailableBalance] = useState(70000000);
-  // console.log("CurrentBalance =", availableBalance);
   const [toggle, setToggle] = useState(true);
   const [purchasedPlayers, setPurchasedPlayers] = useState([]);
   const handleRemovePlayer = (playerId) => {
@@ -31,7 +30,9 @@ function App() {
       <Navbar availableBalance={availableBalance}></Navbar>
 
       <div className=" w-11/12 mx-auto flex justify-between items-center mb-10">
-        <h2>Available Players</h2>
+        <h2 className="text-xl font-bold">{
+          toggle ? "Available Players" : `Selected Players (${purchasedPlayers.length}/16)`
+          }</h2>
         <div className="flex">
           <button
             onClick={() => setToggle(true)}

@@ -2,7 +2,7 @@ const selectedPlayers = ({ purchasedPlayers, handleRemovePlayer }) => {
   console.log(purchasedPlayers);
   return (
     <div className="w-11/12 mx-auto min-h-screen">
-      <h2>Selected Players ({purchasedPlayers.length})</h2>
+  
 
       {purchasedPlayers.map((player) => (
         <div
